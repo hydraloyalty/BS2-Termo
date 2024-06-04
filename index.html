@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+    
+<head>
+    <meta charset="utf-8">
+    <title>Termo de Responsabilidade</title>
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="icon" href="favicon.png">
+</head>
+	
+<body>
+	<div class="tela">
+		<div class="documento" id="documento">
+			
+			<div class="header">
+				<div class="titulo">Termo de Responsabilidade | Banco BS2</div>
+				<img src="Recursos/LOGO.svg" style="" alt="Logo do Banco">
+			</div>
+			
+			<div class="conteudo">
+				<div class="texto">
+					A colaboradora <span id="gerente1">[Gerente]</span> fala por meio deste Termo de Responsabilidade, junto ao Banco BS2 S/A, instituição financeira de direito privado, com sede na Alameda Vicente Pinzon, nº 51, cidade de São Paulo, Estado de São Paulo, CEP: 04547-130, inscrito no CNPJ sob o nº 71.027.866/0003-04.
+					<br><br>
+					A instituição financeira Banco BS2 S/A assegura por meio do diagnóstico apresentado pelo sistema que a única pendência para a conclusão do financiamento do cliente <span id="razao-social">[Razão Social]</span>, cuja empresa no CNPJ de nº <span id="cnpj">[CNPJ]</span>, é a <span id="tipo-pendencia">[Tipo de Pendência]</span> <span id="pendencia">[Pendência]</span>.
+					<br><br>
+					Informações detalhadas sobre o valor a ser liberado na conta de titularidade do cliente favorecido:
+					<br>
+					Valor do crédito: R$ <span id="valor">[Valor do Crédito]</span> em <span id="parcelas">[Parcelas]</span>x de R$ <span id="proposta-parcelas">[Proposta-Parcelas]</span>
+					<br>
+					Carência: <span id="prazo-carencia">[Prazo-Carência]</span> dias para efetuar a primeira parcela
+					<br>
+					Total de Juros: R$ <span id="proposta-juros">[Proposta-Juros]</span>
+					<br>
+					Total devido: R$ <span id="proposta-devido">[Proposta-Devido]</span>
+					<br>
+					Taxa de juros: <span id="taxa-juros">[Taxa de Juros]</span>
+					<br><br>
+					<span class="texto-semibold">Data de Emissão: </span><span id="dia">[dd]</span> de <span id="mes">[mm]</span> de <span id="ano">[aaaa]</span>.
+				</div>
+			</div>
+			
+			<div class="assinaturas">
+				<div class="a-modelo">
+					<img src="Recursos/diretor.svg" class="svg-diretor" alt="Assinatura do Diretor">
+					<div class="a-div"></div>
+					<div class="texto">Giuseppe Paternostro</div>
+					<div class="texto-bold">DIRETOR EXECUTIVO | Banco BS2</div>
+				</div>
+				<div class="a-modelo">
+					<img src="Recursos/gerente.svg" class="svg-gerente" alt="Assinatura do Diretor">
+					<div class="a-div"></div>
+					<div class="texto" id="gerente2">[Gerente]</div>
+					<div class="texto-bold">GERENTE DE CRÉDITO | Banco BS2</div>
+				</div>
+			</div>
+			
+			<div class="selos">
+				<img src="Recursos/SELO.png" class="selo" alt="Selo">
+			</div>
+			
+		</div>
+	
+		<div class="config" class="ocultar-na-impressao" id="config">
+			
+				<div class="config-container">
+					<div class="config-titulo">Documento e Cliente</div>
+					<input type="text" class="input-config" id="i-gerente" placeholder="Gerente" required>
+					<input type="date" class="input-config" id="i-data" max="9999-12-31" required>
+					<input type="text" class="input-config" id="i-cnpj" placeholder="00.000.000/0000-00" required>
+					<input type="text" class="input-config" id="i-rs" placeholder="Razão Social" required>
+					<input type="text" class="input-config" id="i-tipo" placeholder="Tipo de Pendência" required>
+					<input type="text" class="input-config" id="i-pendencia" placeholder="Pedência" required>
+				</div>
+			
+				<div class="config-container">
+					<div class="config-titulo">Proposta de Crédito</div>
+					<input type="text" class="input-config" id="i-valor" placeholder="Valor do Crédito" required>
+					<input type="number" class="input-config" id="i-parcelas" placeholder="Parcelas" required>
+					<input type="number" class="input-config" id="i-carencia" placeholder="Prazo de Carência" required>
+				</div>
+			
+			<button id="botao-imprimir" onclick="exportarDocumento()" disabled>EXPORTAR</button>
+		
+	</div>
+	<script src="Scripts/cnpj.js"></script>
+	<script src="Scripts/proposta.js"></script>
+	<script src="Scripts/imprimir.js"></script>
+	<script src="Scripts/datas.js"></script>
+	<script src="Scripts/gerente.js"></script>
+	<script src="Scripts/cliente.js"></script>
+</body>
+	
+</html>
