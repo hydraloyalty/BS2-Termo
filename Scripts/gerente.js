@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	// Function to update the text content
 	function updateGerenteText() {
 		const value = inputGerente.value;
-		const displayValue = value.trim() === '' ? '[Gerente]' : value;
+		const displayValue = value.trim() === '' ? '[GERENTE]' : value;
 		gerente1.innerText = displayValue;
 		gerente2.innerText = displayValue;
 	}
