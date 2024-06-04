@@ -36,7 +36,7 @@
         botaoImprimir.addEventListener('click', function () {
             // Adiciona uma classe para ocultar a seção de configuração
             secaoConfig.classList.add('ocultar-na-impressao');
-			documento.style.border = "0px solid black";
+			documento.style.border = "0px solid #00003F";
 
             // Dispara a impressão
             window.print();
@@ -44,14 +44,11 @@
             // Espera um pouco antes de remover a classe (por exemplo, 500 milissegundos)
             setTimeout(function () {
                 secaoConfig.classList.remove('ocultar-na-impressao');
-				documento.style.border = "2px solid black";
+				documento.style.border = "2px solid #00003F";
             }, 500);
 
             // Adiciona ou remove a classe 'exportado' ao botão de exportar
             botaoImprimir.classList.toggle('exportado');
-
-            // Alterna o estilo do documento após exportar
-            alternarEstiloDocumento();
         });
 
         // Verifica se os inputs estão preenchidos inicialmente
