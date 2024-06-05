@@ -1,57 +1,34 @@
- document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
+    const botaoImprimir = document.getElementById('botao-imprimir');
+    const secaoConfig = document.querySelector('.config');
+    const documento = document.getElementById('documento');
+    const inputsConfig = document.querySelectorAll('.input-config');
 
-    var botaoImprimir = document.getElementById('botao-imprimir');
-    var secaoConfig = document.querySelector('.config');
-    var documento = document.getElementById('documento');
-
-    var inputsConfig = document.querySelectorAll('.input-config');
-
-    // Função para verificar se todos os inputs estão preenchidos
-    function verificarInputsPreenchidos() {
-        var todosPreenchidos = true;
-        inputsConfig.forEach(function (input) {
-            if (!input.value) {
-                todosPreenchidos = false;
-            }
-        });
-        return todosPreenchidos;
-    }
-
-    // Função para lidar com a validação dos inputs
-    function validarInputs() {
-        var todosPreenchidos = verificarInputsPreenchidos();
-        if (todosPreenchidos) {
-            botaoImprimir.disabled = false; // Habilita o botão de exportar se todos os inputs estiverem preenchidos
+    const verificarInputsPreenchidos = () => Array.from(inputsConfig).every(input => input.value);
+    const validarInputs = () => {
+        botaoImprimir.disabled = !verificarInputsPreenchidos();
+        if (botaoImprimir.disabled) {
+            botaoImprimir.classList.add('botao-desabilitado');
+			botaoImprimir.classList.remove('botao-habilitado');
         } else {
-            botaoImprimir.disabled = true; // Desabilita o botão de exportar se algum input não estiver preenchido
+			botaoImprimir.classList.add('botao-habilitado');
+            botaoImprimir.classList.remove('botao-desabilitado');
         }
-    }
+    };
 
-    // Adiciona um listener de evento a cada input para validar quando o conteúdo muda
-    inputsConfig.forEach(function (input) {
-        input.addEventListener('input', validarInputs);
-    });
+    inputsConfig.forEach(input => input.addEventListener('input', validarInputs));
 
     if (botaoImprimir && secaoConfig) {
-        botaoImprimir.addEventListener('click', function () {
-            // Adiciona uma classe para ocultar a seção de configuração
+        botaoImprimir.addEventListener('click', () => {
             secaoConfig.classList.add('ocultar-na-impressao');
-			documento.style.border = "0px solid #00003F";
-
-            // Dispara a impressão
+            documento.style.border = "0px solid #00003F";
             window.print();
-
-            // Espera um pouco antes de remover a classe (por exemplo, 500 milissegundos)
-            setTimeout(function () {
+            setTimeout(() => {
                 secaoConfig.classList.remove('ocultar-na-impressao');
-				documento.style.border = "2px solid #00003F";
+                documento.style.border = "2px solid #00003F";
             }, 500);
-
-            // Adiciona ou remove a classe 'exportado' ao botão de exportar
             botaoImprimir.classList.toggle('exportado');
         });
-
-        // Verifica se os inputs estão preenchidos inicialmente
         validarInputs();
     }
 });
